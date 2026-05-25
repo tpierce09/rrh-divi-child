@@ -1,0 +1,77 @@
+.mega-menu-trigger.active a {
+  background: #f3f7fb !important;
+}
+
+li.mega-menu-trigger a {
+  padding-right: 10px;
+}
+
+li.mega-menu-trigger a:after {
+  content: "\f107";
+  font-family: 'FontAwesome';
+  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 8px;
+  padding-right: 6px;
+  transition: all .4s ease;
+}
+
+li.mega-menu-trigger.active a:after {
+  content: "\f106";
+}
+
+.custom-mega-menu {
+  position: absolute !important;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(0);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.custom-mega-menu.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.custom-mega-menu-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  display: flex;
+  gap: 60px;
+}
+
+.mega-column h4 {
+  margin-bottom: 15px;
+}
+
+.mega-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-column li {
+  margin-bottom: 10px;
+}
+
+.mega-column a {
+  text-decoration: none;
+  color: #111;
+}

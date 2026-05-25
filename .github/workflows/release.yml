@@ -26,12 +26,25 @@ jobs:
         run: |
           sed -i "s/Version: .*/Version: ${{ steps.tag.outputs.version }}/" style.css
 
+      - name: Prepare production files
+        run: |
+          mkdir production
+
+          cp -R assets production/assets
+          cp -R inc production/inc
+
+          cp functions.php production/functions.php
+          cp updater.php production/updater.php
+          cp style.css production/style.css
+
+          if [ -f screenshot.png ]; then
+            cp screenshot.png production/screenshot.png
+          fi
+
       - name: Build release ZIP
         run: |
-          zip -r rrh-divi-child.zip . \
-            -x "*.git*" \
-            -x "node_modules/*" \
-            -x "src/*"
+          cd production
+          zip -r ../rrh-divi-child.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

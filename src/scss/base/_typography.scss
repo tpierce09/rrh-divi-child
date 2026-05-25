@@ -1,0 +1,17 @@
+strong {
+  font-weight: 500;
+  font-family: 'Gotham Medium';
+}
+
+i.fa-duotone {
+  color: #0077c8;
+}
+
+ul li::marker {
+  color: #0077c8;
+}
+
+ol li::marker {
+  color: #0077c8;
+  font-family: 'Gotham Medium';
+}

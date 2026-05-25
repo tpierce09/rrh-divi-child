@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "sass": "sass src/scss/style.scss assets/css/style.min.css --style=compressed",
+  "sass": "sass src/scss/style.scss assets/css/style.min.css --style=compressed --no-source-map",
 
-  "sass:watch": "sass --watch src/scss/style.scss:assets/css/style.min.css --style=compressed",
+  "sass:watch": "sass --watch src/scss/style.scss:assets/css/style.min.css --style=compressed --no-source-map",
 
   "js": "esbuild src/js/app.js --bundle --minify --outfile=assets/js/app.min.js",
 
