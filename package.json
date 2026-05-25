@@ -1,0 +1,27 @@
+{
+  "name": "rrh-divi-child",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "sass": "sass src/scss/style.scss assets/css/style.min.css --style=compressed",
+
+  "sass:watch": "sass --watch src/scss/style.scss:assets/css/style.min.css --style=compressed",
+
+  "js": "esbuild src/js/app.js --bundle --minify --outfile=assets/js/app.min.js",
+
+  "js:watch": "esbuild src/js/app.js --bundle --minify --outfile=assets/js/app.min.js --watch=forever",
+
+  "build": "npm run sass && npm run js",
+
+  "watch": "npm run sass:watch & npm run js:watch"
+},
+  "keywords": [],
+  "author": "Tyler Pierce",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "esbuild": "^0.25.5",
+    "sass": "^1.100.0"
+  }
+}
