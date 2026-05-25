@@ -1,0 +1,40 @@
+name: Release Theme
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: tag
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update style.css version
+        run: |
+          sed -i "s/Version: .*/Version: ${{ steps.tag.outputs.version }}/" style.css
+
+      - name: Build release ZIP
+        run: |
+          zip -r rrh-divi-child.zip . \
+            -x "*.git*" \
+            -x "node_modules/*" \
+            -x "src/*"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.version }}
+          files: rrh-divi-child.zip
