@@ -1,5 +1,5 @@
 <?php
-
+require_once get_stylesheet_directory() . '/updater.php';
 function rrh_child_assets() {
 
     wp_enqueue_style(
