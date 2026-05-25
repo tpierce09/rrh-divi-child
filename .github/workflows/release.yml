@@ -36,10 +36,7 @@ jobs:
           cp functions.php production/functions.php
           cp updater.php production/updater.php
           cp style.css production/style.css
-
-          if [ -f screenshot.png ]; then
-            cp screenshot.png production/screenshot.png
-          fi
+          cp screenshot.png production/screenshot.png
 
       - name: Build release ZIP
         run: |
